@@ -1,0 +1,60 @@
+EXERCICES
+
+1- Donner la liste des numeros et noms des employees du departements 20
+=>  SELECT num_empl, nom_emp
+	FROM employe AS e, departement AS d
+	WHERE e.num_empl = d.num_dpt
+	AND d.num_dpat = 20;
+
+2- Donner la liste des numeros, noms des ouvriers et leurs numeros de departementrtements
+=>  SELECT num_empl, nom_emp, num_dpat
+	FROM employe AS e, departement AS d
+	WHERE e.num_emp = d.num_dpt
+	AND fonct_emp = "ouvrier";
+
+3- Donner les noms des vendeurs du departement 30 dont le salaire est superieur a 1500
+=>  SELECT nom_emp
+	FROM employe AS e, departement AS d
+	WHERE e.num_emp = d.num_dpt
+	AND e.fonct_empl = "Vendeur"
+	AND num_dpat = 30 AND semp.salire > 1500;
+
+4- Donner la liste des noms, fonctions et salaire des directeur et des presidents
+=>  SELECT salaire_empl, nom_empl, fonct_empl
+	FROM employe
+	WHERE fonct_empl = "directeur" OR fonct_empl = "president";
+
+5- Donner la liste des noms, fonctions et salaire des directeurs et employes qui ont un salaire superieur a 5000
+=>  SELECT fonct_emp, nom_emp, nom_dir, salaire_emp
+	FROM employe
+	WHERE fonct_emp = "directeur" OR fonct_emp = "employee"
+	AND salaire_emp > 5000;
+
+6- Donner la liste des noms, fonctions et salaire des employees qui gagne entre 2200 et 2800
+=>  SELECT fonct_emp, nom_emp, salaire
+	FROM employe
+	WHERE fonct = "employees"
+	AND salaire >= 2200 AND salaire <= 2800;
+
+7- Donner la moyenne des salaire de tous les employees
+=>  SELECT AVG(salaire_emp)
+	FROM employe
+	WHERE fonct_emp = "employees";
+
+8- Donner le plus haut et plus bas salaire de tous les employees
+=>  SELECT MAX(salaire), MIN(salaire)
+	FROM employe
+	WHERE fonct_emp = "employees";
+
+9- Donner les noms des engenieur qui participe au projet EATS-Market
+=>  SELECT nom_emp
+	FROM employe AS e, projet AS p
+	WHERE p.code_projet = e.num_empl
+	AND fonct_emp = "engenieur"
+	AND nom_projet = 'EATS-Market';
+
+10- Donner les projets ou ne travaille que des engenieurs
+=>  SELECT nom_projet
+	FROM projet AS p, employee AS e
+	WHERE p.code_projet = e.num_empl
+	AND fonct_empl = 'Engenieurs';
